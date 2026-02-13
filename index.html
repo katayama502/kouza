@@ -232,9 +232,31 @@
 
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 48px; }
-            .section-title { font-size: 28px; }
-            .focus-section { padding: 30px; }
+            .hero-content h1 { font-size: 36px; }
+            .hero-content .subtitle { font-size: 14px; padding: 8px 20px; margin-bottom: 30px; }
+            .cta-button { padding: 15px 30px; font-size: 18px; width: 100%; max-width: 300px; box-sizing: border-box; }
+            
+            section { padding: 40px 0; }
+            .section-title { font-size: 26px; margin-bottom: 30px; }
+            
+            .container { padding: 0 15px; }
+            
+            .intro { border-radius: 30px 30px 0 0; margin-top: -40px; }
+            .intro p { font-size: 15px !important; }
+
+            .curriculum-grid { grid-template-columns: 1fr; gap: 20px; }
+            .card { padding: 25px 20px; border-radius: 25px; }
+            .card h3 { font-size: 20px; }
+            
+            .focus-section { padding: 30px 20px; border-radius: 30px; }
+            .focus-features { flex-direction: column; align-items: center; }
+            .focus-features span { width: 100%; text-align: center; margin-bottom: 0; }
+
+            .entry-form { padding: 30px 20px; border-radius: 30px; border-width: 4px; }
+            .entry-form .section-title { font-size: 24px; }
+            .entry-form p { font-size: 15px !important; }
+            
+            footer { padding: 30px 0; border-radius: 30px 30px 0 0; }
         }
 
         /* メッセージボックス */
@@ -260,7 +282,7 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="container hero-content">
-        <h1 class="fade-in">AI×私を<br>ブランディング。</h1>
+        <h1 class="fade-in">AI×私を<br>ブランディング</h1>
         <p class="subtitle fade-in">初心者向け！月4回の実践ワークショップ</p>
         <div class="fade-in">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEX52aqrUirIoHJ2X_3aDLFPPjHtkDaZyDm3RbUlRJThGrsw/viewform?usp=publish-editor" class="cta-button">申し込みフォームへ</a>
@@ -318,7 +340,7 @@
                 <h2 style="color: #00796B;">特に「Canva」を徹底活用！</h2>
                 <p>この講座では、今のLinkedInで最も反応がいい「スライド（カルーセル）投稿」の自動作成テクニックを重点的に学びます。</p>
             </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div class="focus-features" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
                 <span style="background: white; padding: 10px 20px; border-radius: 20px;">AI画像生成</span>
                 <span style="background: white; padding: 10px 20px; border-radius: 20px;">背景マジック拡張</span>
                 <span style="background: white; padding: 10px 20px; border-radius: 20px;">30秒で1週間分作成</span>
