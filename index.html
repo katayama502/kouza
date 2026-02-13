@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI×私をブランディング。｜4週間集中ワークショップ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-pink: #FF6F91;
+            --soft-pink: #FFD1DC;
+            --bg-pink: #FFE4E1;
+            --mint: #E0F2F1;
+            --text-color: #5D4037;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            color: var(--text-color);
+            background-color: #fafafa;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 背景ドット */
+        .dot-bg {
+            background-image: radial-gradient(var(--soft-pink) 2px, transparent 2px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* セクション共通 */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-pink) 100%);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            color: var(--primary-pink);
+            text-shadow: 4px 4px 0px #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(18px, 4vw, 24px);
+            background: var(--white);
+            padding: 10px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-pink);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 111, 145, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 111, 145, 0.4);
+        }
+
+        /* 導入セクション */
+        .intro {
+            text-align: center;
+            background: var(--white);
+            border-radius: 60px 60px 0 0;
+            margin-top: -60px;
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--primary-pink);
+            margin-bottom: 50px;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 4px;
+            background: repeating-linear-gradient(90deg, var(--soft-pink), var(--soft-pink) 10px, transparent 10px, transparent 20px);
+        }
+
+        /* カリキュラムグリッド */
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 3px solid var(--soft-pink);
+            border-radius: 40px;
+            padding: 40px;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card-week {
+            font-family: 'Comfortaa', cursive;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-pink);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-pink);
+        }
+
+        /* 重点セクション (Canva) */
+        .focus-section {
+            background-color: var(--mint);
+            border-radius: 60px;
+            padding: 60px;
+            margin: 40px 0;
+        }
+
+        /* お申し込みセクション */
+        .entry-form {
+            background: var(--white);
+            border-radius: 60px;
+            padding: 60px;
+            border: 8px solid var(--soft-pink);
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid var(--soft-pink);
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--text-color);
+            color: white;
+            border-radius: 60px 60px 0 0;
+        }
+
+        /* アニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 48px; }
+            .section-title { font-size: 28px; }
+            .focus-section { padding: 30px; }
+        }
+
+        /* メッセージボックス */
+        #message-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-pink);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dot-bg"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1 class="fade-in">AI×私を<br>ブランディング。</h1>
+        <p class="subtitle fade-in">初心者向け！月4回の実践ワークショップ</p>
+        <div class="fade-in">
+            <a href="#apply" class="cta-button">申し込みフォームへ</a>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="intro">
+    <div class="container">
+        <h2 class="section-title fade-in">もう、AIは怖くない。</h2>
+        <p class="fade-in" style="font-size: 20px; max-width: 800px; margin: 0 auto 40px;">
+            LinkedInで「AIを使いこなすプロ」として自分をアピールしませんか？<br>
+            ツールの使い方だけでなく、あなたの個性を引き出す方法を、楽しく・可愛く・分かりやすくお伝えします。
+        </p>
+        
+        <div class="curriculum-grid">
+            <!-- Week 1 -->
+            <div class="card fade-in">
+                <span class="card-week">WEEK 01</span>
+                <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+                <h3>Geminiと壁打ち<br>最強の自己紹介</h3>
+                <p>AIを優秀な新人秘書にして、あなたの強みを言語化。LinkedInのプロフィールを劇的に変えます。</p>
+            </div>
+            <!-- Week 2 -->
+            <div class="card fade-in">
+                <span class="card-week">WEEK 02</span>
+                <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+                <h3>NotebookLMで<br>知識の宝箱作り</h3>
+                <p>難しいニュースも、大量のPDFも。自分専用のAI図書館で、情報発信のネタに困らなくなります。</p>
+            </div>
+            <!-- Week 3 -->
+            <div class="card fade-in" style="border-color: var(--primary-pink); border-width: 5px;">
+                <span class="card-week">WEEK 03 (重点)</span>
+                <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Canva AIで<br>プロ級デザイン</h3>
+                <p>画像生成から背景拡張まで。デザインセンス不要で、視覚的に訴求する投稿スライドを作ります。</p>
+            </div>
+            <!-- Week 4 -->
+            <div class="card fade-in">
+                <span class="card-week">WEEK 04</span>
+                <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>技術の壁を突破<br>＆外部発信！</h3>
+                <p>文字化け対策など「これ、どうすれば？」を解決。最後はAI活用の成果を世界へ公開します。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Section -->
+<section>
+    <div class="container">
+        <div class="focus-section fade-in">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: #00796B;">特に「Canva」を徹底活用！</h2>
+                <p>この講座では、今のLinkedInで最も反応がいい「スライド（カルーセル）投稿」の自動作成テクニックを重点的に学びます。</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <span style="background: white; padding: 10px 20px; border-radius: 20px;">AI画像生成</span>
+                <span style="background: white; padding: 10px 20px; border-radius: 20px;">背景マジック拡張</span>
+                <span style="background: white; padding: 10px 20px; border-radius: 20px;">30秒で1週間分作成</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Schedule Section -->
+<section style="background: var(--bg-pink);">
+    <div class="container">
+        <h2 class="section-title fade-in">開催スケジュール</h2>
+        <p class="fade-in" style="text-align: center; font-size: 20px; margin-bottom: 40px;">
+            以下の日程でオンライン開催いたします。<br>
+            時間はすべて <strong>21:00〜22:30</strong> です。
+        </p>
+
+        <div class="curriculum-grid">
+            <div class="card fade-in" style="text-align: center;">
+                <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                <h3>3月7日 (土)</h3>
+                <p style="font-size: 1.2em; font-weight: bold; color: var(--primary-pink);">21:00 - 22:30</p>
+            </div>
+            <div class="card fade-in" style="text-align: center;">
+                <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                <h3>3月14日 (土)</h3>
+                <p style="font-size: 1.2em; font-weight: bold; color: var(--primary-pink);">21:00 - 22:30</p>
+            </div>
+            <div class="card fade-in" style="text-align: center;">
+                <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                <h3>3月15日 (日)</h3>
+                <p style="font-size: 1.2em; font-weight: bold; color: var(--primary-pink);">21:00 - 22:30</p>
+            </div>
+            <div class="card fade-in" style="text-align: center;">
+                <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                <h3>3月28日 (土)</h3>
+                <p style="font-size: 1.2em; font-weight: bold; color: var(--primary-pink);">21:00 - 22:30</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Application Section -->
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 AI Branding Workshop. All Rights Reserved.</p>
+        <div style="margin-top: 20px; font-size: 24px;">
+            <i class="fa-brands fa-linkedin" style="margin: 0 10px;"></i>
+            <i class="fa-brands fa-x-twitter" style="margin: 0 10px;"></i>
+            <i class="fa-brands fa-instagram" style="margin: 0 10px;"></i>
+        </div>
+    </div>
+</footer>
+
+<div id="message-box"></div>
+
+<script>
+    // スクロール時のアニメーション
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // 送信ボタンのダミー処理
+    function handleSubmit() {
+        const msgBox = document.getElementById('message-box');
+        msgBox.innerText = "✨ お申し込みを受け付けました！折り返しご連絡いたします。";
+        msgBox.style.display = 'block';
+        
+        // 3秒後に消す
+        setTimeout(() => {
+            msgBox.style.display = 'none';
+        }, 3000);
+    }
+
+    // スムーズスクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
